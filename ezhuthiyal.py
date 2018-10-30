@@ -64,7 +64,7 @@ def check_ayutha_ezhuthu_in_word(input_string):
                 status = [True for i in uyir_mei_kuril if input_string[idx-1] in i]
                 if (input_string[idx-1] in uyir_kuril) or status: # சரிபார் : ஆயுத எழுத்துக்கு முன்னே உயிர்மெய் குறில் அல்லது உயிர்குறில்
                     அகரம்_அல்லாத_உயிர்மெய் = சரிபார்_அகரம்_அல்லாத_உயிர்மெய்யா(input_string, idx+2)
-                    status = [True for i in uyir_mei_vallinam if input_string[idx+1]+அகரம்_அல்லாத_உயிர்மெய் in i]
+                    status = [True for i in uyir_mei_vallinam if input_string[idx+1]+அகரம்_அல்லாத_உயிர்மெய் in i] # சரிபார் : ஆயுத எழுத்துக்கு பின்னே ஒரு வல்லின மெய்எழுத்து
                     if status:
                         return True
         except IndexError as e:
