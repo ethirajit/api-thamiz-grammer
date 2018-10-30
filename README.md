@@ -11,7 +11,7 @@ API for Thamiz Grammer Based on Tholkappiyam, Nanool, this can used by applicati
 
 ### Main Purpose
 * Grammer Check
-2. Spell Check
+* Spell Check
 
 ### Programming Language:
 ``` Python V3```
