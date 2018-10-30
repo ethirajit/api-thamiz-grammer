@@ -1,5 +1,25 @@
 # -*- coding: utf-8 -*-
 
+def generate_mei_uyirmei(agara_mei, punar_kuri=None):
+    return_var = []
+    if punar_kuri: #உயிர்மெய் எழுத்துகள்
+        for i in agara_mei:
+            uyir_mei_list = []
+            if punar_kuri != punarum_uyir_nedil: #Skip agara_uyirmei in Nedil
+                uyir_mei_list.append(i)
+            for j in punar_kuri:
+                uyir_mei_list.append(i+j) #Unicode concatenation
+            return_var.append(uyir_mei_list)
+        return_var = tuple(return_var)
+        return return_var
+	
+    else: #மெய் எழுத்துகள்
+        for i in agara_mei:
+            return_var.append(i+akku_kuri) #Unicode concatenation
+        return_var = tuple(return_var)
+        return return_var
+
+
 # உயிர் எழுத்துகள்
 uyir = "அஆஇஈஉஊஎஏஐஒஓஔ" # உயிர்
 uyir_kuril = "அஇஉஎஒ" # உயிர்குறில்
@@ -26,21 +46,10 @@ vallinam = []
 mellinam = []
 idaiyinam = []
 
-for i in agara_uyirmei: #மெய் எழுத்துகள்
-    mei.append(i+akku_kuri) #Unicode concatenation
-mei = tuple(mei)
-
-for i in agara_vallinam: #வல்லினம்
-    vallinam.append(i+akku_kuri) #Unicode concatenation
-vallinam = tuple(vallinam)
-
-for i in agara_mellinam: #மெல்லினம்
-    mellinam.append(i+akku_kuri) #Unicode concatenation
-mellinam = tuple(mellinam)
-
-for i in agara_idaiyinam: #இடையினம்
-    idaiyinam.append(i+akku_kuri) #Unicode concatenation
-idaiyinam = tuple(idaiyinam)
+mei = generate_mei_uyirmei(agara_uyirmei) #மெய் எழுத்துகள்
+vallinam = generate_mei_uyirmei(agara_vallinam) #வல்லினம்
+mellinam = generate_mei_uyirmei(agara_mellinam) #மெல்லினம்
+idaiyinam = generate_mei_uyirmei(agara_idaiyinam) #இடையினம்
 
 #உயிர்மெய் எழுத்துகள் உருவாக்கம், அகர உயிர்மெய் எழுத்திலிருந்து
 uyir_mei = []
@@ -50,52 +59,13 @@ uyir_mei_vallinam = []
 uyir_mei_mellinam = []
 uyir_mei_idaiyinam = []
 
-for i in agara_uyirmei: #216 உயிர்மெய் எழுத்துகள்
-    uyir_mei_list = []
-    uyir_mei_list.append(i)
-    for j in punarum_uyir:
-        uyir_mei_list.append(i+j) #Unicode concatenation
-    uyir_mei.append(uyir_mei_list)
-uyir_mei = tuple(uyir_mei)
+uyir_mei = generate_mei_uyirmei(agara_uyirmei, punarum_uyir) #216 உயிர்மெய் எழுத்துகள்
+uyir_mei_kuril = generate_mei_uyirmei(agara_uyirmei, punarum_uyir_kuril) #90 உயிர்மெய் குறில் எழுத்துகள்
+uyir_mei_nedil = generate_mei_uyirmei(agara_uyirmei, punarum_uyir_nedil) #126 உயிர்மெய் நெடில் எழுத்துகள்
+uyir_mei_vallinam = generate_mei_uyirmei(agara_vallinam, punarum_uyir) #72 உயிர்மெய் வல்லினம் எழுத்துகள்
+uyir_mei_mellinam = generate_mei_uyirmei(agara_mellinam, punarum_uyir) #72 உயிர்மெய் மெல்லினம் எழுத்துகள்
+uyir_mei_idaiyinam = generate_mei_uyirmei(agara_idaiyinam, punarum_uyir) #72 உயிர்மெய் இடையினம் எழுத்துகள்
 
-for i in agara_uyirmei: #90 உயிர்மெய் குறில் எழுத்துகள்
-    uyir_mei_list = []
-    uyir_mei_list.append(i)
-    for j in punarum_uyir_kuril:
-        uyir_mei_list.append(i+j) #Unicode concatenation
-    uyir_mei_kuril.append(uyir_mei_list)
-uyir_mei_kuril = tuple(uyir_mei_kuril)
-
-for i in agara_uyirmei: #126 உயிர்மெய் நெடில் எழுத்துகள்
-    uyir_mei_list = []
-    for j in punarum_uyir_nedil:
-        uyir_mei_list.append(i+j) #Unicode concatenation
-    uyir_mei_nedil.append(uyir_mei_list)
-uyir_mei_nedil = tuple(uyir_mei_nedil)
-
-for i in agara_vallinam: #72 உயிர்மெய் வல்லினம் எழுத்துகள்
-    uyir_mei_list = []
-    uyir_mei_list.append(i)
-    for j in punarum_uyir:
-        uyir_mei_list.append(i+j) #Unicode concatenation
-    uyir_mei_vallinam.append(uyir_mei_list)
-uyir_mei_vallinam = tuple(uyir_mei_vallinam)
-
-for i in agara_mellinam: #72 உயிர்மெய் மெல்லினம் எழுத்துகள்
-    uyir_mei_list = []
-    uyir_mei_list.append(i)
-    for j in punarum_uyir:
-        uyir_mei_list.append(i+j) #Unicode concatenation
-    uyir_mei_mellinam.append(uyir_mei_list)
-uyir_mei_mellinam = tuple(uyir_mei_mellinam)
-
-for i in agara_idaiyinam: #72 உயிர்மெய் இடையினம் எழுத்துகள்
-    uyir_mei_list = []
-    uyir_mei_list.append(i)
-    for j in punarum_uyir:
-        uyir_mei_list.append(i+j) #Unicode concatenation
-    uyir_mei_idaiyinam.append(uyir_mei_list)
-uyir_mei_idaiyinam = tuple(uyir_mei_idaiyinam)
 
 
 om = "ௐ"
@@ -107,4 +77,5 @@ currency = "௹" #Rupees Sign
 number_sign = "௺" # Number sign same as '#'
 other_letter = "ஜஶஷஸஹ" #JA, SHA, SSA, SA, HA
 anusvara = "ஂ" #Not used for Tamiz,
+
 
