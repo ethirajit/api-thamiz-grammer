@@ -3,23 +3,28 @@
 import thamiz_unicode_letter
 
 #Global variable
-uyir       = thamiz_unicode_letter.uyir
-uyir_kuril = thamiz_unicode_letter.uyir_kuril
-uyir_nedil = thamiz_unicode_letter.uyir_nedil
-punarum_uyir  = thamiz_unicode_letter.punarum_uyir
-punarum_uyir_kuril  = thamiz_unicode_letter.punarum_uyir_kuril
-punarum_uyir_nedil  = thamiz_unicode_letter.punarum_uyir_nedil
-
-mei       = thamiz_unicode_letter.mei
-uyir_mei  = thamiz_unicode_letter.uyir_mei
-uyir_mei_kuril = thamiz_unicode_letter.uyir_mei_kuril
-uyir_mei_nedil = thamiz_unicode_letter.uyir_mei_nedil
-uyir_mei_vallinam = thamiz_unicode_letter.uyir_mei_vallinam
-uyir_mei_mellinam = thamiz_unicode_letter.uyir_mei_mellinam
-uyir_mei_idaiyinam = thamiz_unicode_letter.uyir_mei_idaiyinam
-
-akku      = thamiz_unicode_letter.akku
-om        = thamiz_unicode_letter.om
+#உயிர் எழுத்துகள்
+uyir                  = thamiz_unicode_letter.uyir
+uyir_kuril            = thamiz_unicode_letter.uyir_kuril
+uyir_nedil            = thamiz_unicode_letter.uyir_nedil
+punarum_uyir          = thamiz_unicode_letter.punarum_uyir
+punarum_uyir_kuril    = thamiz_unicode_letter.punarum_uyir_kuril
+punarum_uyir_nedil    = thamiz_unicode_letter.punarum_uyir_nedil
+#மெய் எழுத்துகள்
+mei                   = thamiz_unicode_letter.mei
+vallinam              = thamiz_unicode_letter.vallinam
+mellinam              = thamiz_unicode_letter.mellinam
+idaiyinam             = thamiz_unicode_letter.idaiyinam
+#உயிர்மெய் எழுத்துகள்
+uyir_mei              = thamiz_unicode_letter.uyir_mei
+uyir_mei_kuril        = thamiz_unicode_letter.uyir_mei_kuril
+uyir_mei_nedil        = thamiz_unicode_letter.uyir_mei_nedil
+uyir_mei_vallinam     = thamiz_unicode_letter.uyir_mei_vallinam
+uyir_mei_mellinam     = thamiz_unicode_letter.uyir_mei_mellinam
+uyir_mei_idaiyinam    = thamiz_unicode_letter.uyir_mei_idaiyinam
+#மற்றவை
+akku                  = thamiz_unicode_letter.akku
+om                    = thamiz_unicode_letter.om
 
 
 '''
@@ -42,12 +47,12 @@ def check_ayutha_ezhuthu_in_word(input_string):
         try:
             if idx > 0:
                 status = [True for i in uyir_mei_kuril if input_string[idx-1] in i]
-                if (input_string[idx-1] in uyir_kuril) or status: # சரிபார் ஆயுத எழுத்துக்கு முன்னே உயிர்மெய் குறில் அல்லது உயிர்குறில் 
-                    if input_string[idx+2] in punarum_uyir: # சரிபார் ஆயுத எழுத்துக்கு பின்னே அகரம் அல்லாத வல்லின உயிர்மெய்
+                if (input_string[idx-1] in uyir_kuril) or status: # சரிபார் : ஆயுத எழுத்துக்கு முன்னே உயிர்மெய் குறில் அல்லது உயிர்குறில் 
+                    if input_string[idx+2] in punarum_uyir: # சரிபார் : ஆயுத எழுத்துக்கு பின்னே அகரம் அல்லாத வல்லின உயிர்மெய்
                         status = [True for i in uyir_mei_vallinam if input_string[idx+1]+input_string[idx+2] in i]
                         if status:
                             return True
-                    else: # சரிபார் ஆயுத எழுத்துக்கு பின்னே அகர வல்லின உயிர்மெய்
+                    else: # சரிபார் : ஆயுத எழுத்துக்கு பின்னே அகர வல்லின உயிர்மெய்
                         status = [True for i in uyir_mei_vallinam if input_string[idx+1] in i]
                         if status:
                             return True
