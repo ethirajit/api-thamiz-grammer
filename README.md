@@ -9,10 +9,12 @@
 
 API for Thamiz Grammer Based on Tholkappiyam, Nanool, this can used by application developer for Thamiz language
 
-###Main Purpose
+### Main Purpose
 1. Grammer Check
 2. Spell Check
 
-###Programming Language:
+### Programming Language:
 ``` Python V3```
 
+### Authors:
+* **Ethiraj K** - *Initial work* - [ethirajit](https://github.com/ethirajit)
