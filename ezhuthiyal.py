@@ -120,7 +120,7 @@ def check_ayutha_ezhuthu_in_word(input_string):
 மடங்ங் கலந்த மன்னே	குறிலிணைகீழ் கடை
 
 Input  => Unicode string
-Return =>  True or False
+Return =>  ஒற்றளபெடை வகைகள் or False
 '''
 def check_ottralabadai_in_word(input_string):
     check_lists = ("ங்", "ஞ்", "ண்", "ந்", "ம்", "ன்", "வ்", "ய்", "ல்", "ள்", "ஃ")
