@@ -18,3 +18,13 @@ API for Thamiz Grammer Based on Tholkappiyam, Nanool, this can used by applicati
 
 ### Authors:
 * **Ethiraj K** - *Initial work* - [ethirajit](https://github.com/ethirajit)
+
+### Authors:
+* https://github.com/tamiliam/Solthiruthi2 - A new spellchecker from ground-up
+* https://github.com/tamiliam/Ilakkanam - இலக்கணத் திருத்தி
+* https://github.com/tamiliam/tamil-stemmer - A rule-based iterative affix stripping stemmer for Tamil
+* https://github.com/thamizha/thamizha-solthiruthi - தமிழ் சொற்பிழைத்திருத்தி
+* https://github.com/thamizha/thamizha-ilakkanam - இலக்கணப்பிழைத்திருத்தி
+* https://github.com/thamizha/visaineri
+* https://github.com/justjkk/visaineri-parsers
+* https://github.com/justjkk/visaineri
