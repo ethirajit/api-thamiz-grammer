@@ -19,7 +19,7 @@ API for Thamiz Grammer Based on Tholkappiyam, Nanool, this can used by applicati
 ### Authors:
 * **Ethiraj K** - *Initial work* - [ethirajit](https://github.com/ethirajit)
 
-### Authors:
+### Reference:
 * https://github.com/tamiliam/Solthiruthi2 - A new spellchecker from ground-up
 * https://github.com/tamiliam/Ilakkanam - இலக்கணத் திருத்தி
 * https://github.com/tamiliam/tamil-stemmer - A rule-based iterative affix stripping stemmer for Tamil
