@@ -68,13 +68,12 @@ Output => Tuple of splitted word
 def split_word_to_letter(input_string):
     out_list = []
     for idx in range(1, len(input_string)):
-        அகரம்_அல்லாத_உயிர்மெய்_மெய் = சரிபார்_அகரம்_அல்லாத_உயிர்மெய்யா_மெய்யா(input_string, idx)
-        if அகரம்_அல்லாத_உயிர்மெய்_மெய்:
-            out_list.append(input_string[idx-1]+அகரம்_அல்லாத_உயிர்மெய்_மெய்)
+        if சரிபார்_அகரம்_அல்லாத_உயிர்மெய்யா_மெய்யா(input_string, idx):
+            out_list.append(input_string[idx-1]+சரிபார்_அகரம்_அல்லாத_உயிர்மெய்யா_மெய்யா(input_string, idx))
+        elif not சரிபார்_அகரம்_அல்லாத_உயிர்மெய்யா_மெய்யா(input_string, idx-1):
+            out_list.append(input_string[idx-1])
         else:
-            அகரம்_அல்லாத_உயிர்மெய்_மெய் = சரிபார்_அகரம்_அல்லாத_உயிர்மெய்யா_மெய்யா(input_string, idx-1)
-            if not அகரம்_அல்லாத_உயிர்மெய்_மெய்:
-                out_list.append(input_string[idx-1])
+            out_list.append(input_string[idx])
     return tuple(out_list)
 
 '''
@@ -127,21 +126,43 @@ def check_ottralabadai_in_word(input_string):
     split_words = split_word_to_letter(input_string)
     for check_list in check_lists:
         for idx in range(len(split_words)):
-            if split_words[idx] == check_list:
-                if split_words[idx+1] == check_list:
-                    if len(split_words) == idx+2: #கடை
-                        if idx == 1:
-                            return "குறிற்கீழ் கடை"
-                        elif idx == 2:
-                            return "குறிலிணைகீழ் கடை"
-                    else: #இடை
-                        if idx == 1:
-                            return "குறிற்கீழ் இடை"
-                        elif idx == 2:
-                            return "குறிலிணைகீழ் இடை"
+            if split_words[idx] == check_list and split_words[idx+1] == check_list:
+                if len(split_words) == idx+2: #கடை
+                    if idx == 1:
+                        return "குறிற்கீழ் கடை"
+                    elif idx == 2:
+                        return "குறிலிணைகீழ் கடை"
+                else: #இடை
+                    if idx == 1:
+                        return "குறிற்கீழ் இடை"
+                    elif idx == 2:
+                        return "குறிலிணைகீழ் இடை"
     return False
 
-input_string = "குறிலிணைகீழ் கடை"
 
-print(check_ottralabadai_in_word(input_string))
+'''
+நோக்கம்:
+ஒரு வார்த்தை உயிரளபெடை இலக்கணத்தை கடைபிடிக்கின்றனவா என்பதை சாரிப்பர்.
+
+இலக்கணம்:
+    உயிரளபெடை என்பது உயிரெழுத்து அளபெடுத்து வருதல்
+
+எ.கா:
+    பால் - பாஅல், புகார் - புகாஅர், ஆய் - ஆஅய், கடா - கடாஅ, படா - படாஅஅ, கோல் - கோஒல் = செய்யுளிசை அளபெடை
+    குருவி - குரீஇ, அளவி - அளைஇ = சொல்லிசை அளபெடை
+    பேம் - பேஎம், உடுப்பதும் - உடுப்பதூஉம், உண்பதும் - உண்பதூஉம் = இன்னிசை அளபெடை
+
+Input  => Unicode string
+Return =>  True or False
+'''
+def check_uyiralabadai_in_word(input_string):
+    split_words = split_word_to_letter(input_string)
+    for uk in uyir_kuril:
+        if uk in split_words[1:]:
+            return True
+    return False
+
+input_string = "அளைஇ"
+
+print(check_uyiralabadai_in_word(input_string))
 
